@@ -1,3 +1,6 @@
+using CyberEssentialsApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CyberEssentialsApp
 {
     public class Program
@@ -5,6 +8,10 @@ namespace CyberEssentialsApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Add DbContext configuration
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
