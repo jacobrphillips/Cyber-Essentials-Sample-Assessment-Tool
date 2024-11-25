@@ -10,6 +10,6 @@
         public int TotalServers { get; set; }
         public int TotalMobiles { get; set; }
         public int TotalFirewalls { get; set; }
-        public int RequiredSampleSize { get; set; }
+        public Dictionary<string, int> RequiredSampleSize { get; set; }
     }
 }
